@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Font } from '@react-pdf/renderer';
+import { Text } from '@react-pdf/renderer';
 import { styles } from '../PdfStyles';
 
 const assessments = [

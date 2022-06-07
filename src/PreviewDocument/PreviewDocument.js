@@ -14,7 +14,7 @@ import BasicBibliography from './Bibliography/BasicBibliography';
 import DigResBibliography from './Bibliography/DigResBibliography';
 import TeacherProfile from './TeacherProfile/TeacherProfile';
 import { SubjectContext } from '../context/SubjectContext';
-import { GET_COMPETENCES_AXIOS, GET_CONNECTOR_AXIOS, GET_RELATED_UNITS_AXIOS, GET_SUBJECT_AXIOS, GET_SUBJECT_BIBLIO_AXIOS, GET_VERB_AXIOS } from '../helpers/AxiosEnpoints';
+import { GET_COMPETENCES_AXIOS, GET_CONNECTOR_AXIOS, GET_SUBJECT_AXIOS, GET_SUBJECT_BIBLIO_AXIOS, GET_VERB_AXIOS } from '../helpers/AxiosEnpoints';
 
 Font.register({ family: 'Arial', fontStyle: 'bold' });
 
