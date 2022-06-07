@@ -1,12 +1,10 @@
-import React, { useContext, useEffect } from 'react';
-import { Text, View, Font } from '@react-pdf/renderer';
-// import { SubjectContext } from '../../../context/SubjectContext';
+import React from 'react';
+import { Text, Font } from '@react-pdf/renderer';
 // import romanize from '../../../helpers/Romanize';
 import { styles } from '../PdfStyles';
 import MainInfoDocument from '../MainInfoDocument';
 import InfoSubject from './InfoSubject';
 import InfoSubject2 from './InfoSubject2';
-import { SubjectContext } from '../../context/SubjectContext';
 
 Font.register({ family: 'Arial' });
 

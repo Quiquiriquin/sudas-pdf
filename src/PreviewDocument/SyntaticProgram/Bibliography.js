@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Font } from '@react-pdf/renderer';
+import { Text, Font } from '@react-pdf/renderer';
 import { styles } from '../PdfStyles';
 // import romanize from '../../../helpers/Romanize';
 
@@ -36,21 +36,21 @@ const bibliographies = [
   },
 ];
 
-const teachingMethods = [
-  'a) Inductivo',
-  'b) Deductivo',
-  'c) Analógico',
-  'd) Aula Invertida',
-  'e)',
-];
-
-const teachingStrategies = [
-  'a) Estudio de casos',
-  'b) Aprendizaje basado en problemas',
-  'c) Aprendizaje orientado proyectos ',
-  'd)',
-  'e)',
-];
+// const teachingMethods = [
+//   'a) Inductivo',
+//   'b) Deductivo',
+//   'c) Analógico',
+//   'd) Aula Invertida',
+//   'e)',
+// ];
+//
+// const teachingStrategies = [
+//   'a) Estudio de casos',
+//   'b) Aprendizaje basado en problemas',
+//   'c) Aprendizaje orientado proyectos ',
+//   'd)',
+//   'e)',
+// ];
 
 Font.register({
   family: 'Arial',

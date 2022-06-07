@@ -1,4 +1,3 @@
-import { Text } from '@react-pdf/renderer';
 import React from 'react';
 import MainInfoDocument from '../MainInfoDocument';
 import { styles } from '../PdfStyles';

@@ -1,4 +1,4 @@
-import { Text, View, Font } from '@react-pdf/renderer';
+import { Text, Font } from '@react-pdf/renderer';
 import React from 'react';
 import { styles } from '../PdfStyles';
 

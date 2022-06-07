@@ -3,7 +3,6 @@ import { Text, Font } from '@react-pdf/renderer';
 import MainInfoDocument from '../MainInfoDocument';
 import { styles } from '../PdfStyles';
 import UnitContentsHeaders from './UnitContentsHeaders';
-import RowContent from './RowContent';
 import ContentList from './ContentList';
 // 18.29
 const UnitContents = ({

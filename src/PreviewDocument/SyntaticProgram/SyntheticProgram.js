@@ -1,4 +1,4 @@
-import { Text, View, Font } from '@react-pdf/renderer';
+import { Text, Font } from '@react-pdf/renderer';
 import { styles } from '../PdfStyles';
 import Contents from './Contents';
 import TeachingApproach from './TeachingApproach';

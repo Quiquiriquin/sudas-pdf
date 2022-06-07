@@ -13,14 +13,6 @@ import TematicUnit from './TematicUnit/TematicUnit';
 import BasicBibliography from './Bibliography/BasicBibliography';
 import DigResBibliography from './Bibliography/DigResBibliography';
 import TeacherProfile from './TeacherProfile/TeacherProfile';
-import {
-  GET_COMPETENCES,
-  GET_CONNECTOR,
-  GET_RELATED_UNITS,
-  GET_SUBJECT,
-  GET_VERB,
-} from '../helpers/SubjectEndpoints';
-import { GET_SUBJECT_BIBLIO } from '../helpers/BibliographyEndpoints';
 import { SubjectContext } from '../context/SubjectContext';
 import { GET_COMPETENCES_AXIOS, GET_CONNECTOR_AXIOS, GET_RELATED_UNITS_AXIOS, GET_SUBJECT_AXIOS, GET_SUBJECT_BIBLIO_AXIOS, GET_VERB_AXIOS } from '../helpers/AxiosEnpoints';
 
@@ -28,7 +20,6 @@ Font.register({ family: 'Arial', fontStyle: 'bold' });
 
 const PreviewDocument = () => {
   const {
-    setRelatedUnits,
     setVerbs,
     verbs,
     setConnectors,
