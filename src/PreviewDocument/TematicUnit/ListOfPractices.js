@@ -39,7 +39,7 @@ Font.register({
 // ];
 
 const ListOfPractices = ({ practices }) => {
-  const totalHours = practices.reduce((accumulator, object) => {
+  const totalHours = practices?.reduce((accumulator, object) => {
     return parseFloat(
       parseFloat(accumulator) + parseFloat(object.hours)
     ).toFixed(1);
@@ -73,7 +73,7 @@ const ListOfPractices = ({ practices }) => {
         </view>
       </view>
       <ListOfPracticesHeader />
-      {practices.map((practice, index) => (
+      {practices?.map((practice, index) => (
         <ItemListPractices
           // eslint-disable-next-line react/no-array-index-key
           key={`practice-${index}`}

@@ -11,9 +11,9 @@ import { SubjectContext } from '../../context/SubjectContext';
 Font.register({ family: 'Arial' });
 
 const Syllabus = ({ subject, verbs, connectors }) => {
-  const verb = verbs.find((v) => v.id === subject.purpose.verbId);
-  const connector = connectors.find(
-    (c) => c.id === subject.purpose.connectorId
+  const verb = verbs?.find((v) => v?.id === subject?.purpose?.verbId);
+  const connector = connectors?.find(
+    (c) => c?.id === subject?.purpose?.connectorId
   );
   return (
     <view style={styles.syntheticProgram}>

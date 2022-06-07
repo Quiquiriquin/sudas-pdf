@@ -22,7 +22,7 @@ import {
 } from '../helpers/SubjectEndpoints';
 import { GET_SUBJECT_BIBLIO } from '../helpers/BibliographyEndpoints';
 import { SubjectContext } from '../context/SubjectContext';
-import { GET_COMPETENCES_AXIOS, GET_CONNECTOR_AXIOS, GET_RELATED_UNITS_AXIOS, GET_SUBJECT_AXIOS, GET_VERB_AXIOS } from '../helpers/AxiosEnpoints';
+import { GET_COMPETENCES_AXIOS, GET_CONNECTOR_AXIOS, GET_RELATED_UNITS_AXIOS, GET_SUBJECT_AXIOS, GET_SUBJECT_BIBLIO_AXIOS, GET_VERB_AXIOS } from '../helpers/AxiosEnpoints';
 
 Font.register({ family: 'Arial', fontStyle: 'bold' });
 
@@ -42,7 +42,7 @@ const PreviewDocument = () => {
 
   const { data: biblipographiesData } = useQuery(
     ['bibliography', subject?.id],
-    GET_SUBJECT_BIBLIO,
+    GET_SUBJECT_BIBLIO_AXIOS,
     {
       enabled: !!subject,
     }
@@ -80,12 +80,12 @@ const PreviewDocument = () => {
     if (unitsResponse) {
       setUnits(unitsResponse.data);
     }
-  }, [unitsResponse]);
+  }, [setUnits, unitsResponse]);
 
-  const {
-    isLoading: isLoadingRelatedUnits,
-    data: relatedUnitsResponse,
-  } = useQuery(['relatedUnits', id], GET_RELATED_UNITS);
+  // const {
+  //   isLoading: isLoadingRelatedUnits,
+  //   data: relatedUnitsResponse,
+  // } = useQuery(['relatedUnits', id], GET_RELATED_UNITS);
 
   useEffect(() => {
     if (subjectResponse) {
@@ -96,36 +96,38 @@ const PreviewDocument = () => {
   useEffect(() => {
     if (verbsResponse && connectorsResponse) {
       console.log(verbsResponse)
-      const newVerbs = verbsResponse?.data.map(
+      const newVerbs = verbsResponse?.map(
         ({ description, id: idVerb }) => ({
           id: idVerb,
           value: description,
           label: description,
         })
       );
-      const newConnectors = connectorsResponse.data.map(
+      const newConnectors = connectorsResponse?.map(
         ({ description, id: idConnector }) => ({
           id: idConnector,
           value: description,
           label: description,
         })
-      );
+        );
+        console.log(newVerbs);
+        console.log(newConnectors);
       setConnectors(newConnectors);
       setVerbs(newVerbs);
     }
-  }, [verbsResponse, connectorsResponse]);
+  }, [verbsResponse, connectorsResponse, setConnectors, setVerbs]);
 
-  useEffect(() => {
-    if (relatedUnitsResponse) {
-      setRelatedUnits(relatedUnitsResponse.data);
-    }
-  }, [relatedUnitsResponse]);
+  // useEffect(() => {
+  //   if (relatedUnitsResponse) {
+  //     setRelatedUnits(relatedUnitsResponse.data);
+  //   }
+  // }, [relatedUnitsResponse]);
 
   if (
     isLoadingSubject ||
     isLoadingConnectors ||
     isLoadingVerbs ||
-    isLoadingRelatedUnits ||
+    // isLoadingRelatedUnits ||
     isLoadingUnits
   )
     return <p>Cargando...</p>;

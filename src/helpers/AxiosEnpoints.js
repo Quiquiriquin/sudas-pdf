@@ -14,13 +14,13 @@ export const GET_VERB_AXIOS = async () => {
   const res = await axios.get(
     `${API}/verb`
   )
-  return res;
+  return res.data;
 }
 export const GET_CONNECTOR_AXIOS = async () => {
   const res = await axios.get(
     `${API}/connector`
   )
-  return res;
+  return res.data;
 }
 export const GET_COMPETENCES_AXIOS = async ({ queryKey }) => {
   const [, id] = queryKey
