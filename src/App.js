@@ -15,7 +15,7 @@ function App() {
           />
           <Route
             path="/"
-            element={<p>Holi</p>}
+            element={<p>Hola</p>}
           />
 
         </Routes>

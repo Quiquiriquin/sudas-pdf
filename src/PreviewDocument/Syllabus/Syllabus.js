@@ -8,11 +8,12 @@ import InfoSubject2 from './InfoSubject2';
 
 Font.register({ family: 'Arial' });
 
-const Syllabus = ({ subject, verbs, connectors }) => {
+const Syllabus = ({ subject, verbs, connectors, units }) => {
   const verb = verbs?.find((v) => v?.id === subject?.purpose?.verbId);
   const connector = connectors?.find(
     (c) => c?.id === subject?.purpose?.connectorId
   );
+  console.log(units);
   return (
     <view style={styles.syntheticProgram}>
       <Text style={styles.mainTitle}>PROGRAMA DE ESTUDIOS</Text>

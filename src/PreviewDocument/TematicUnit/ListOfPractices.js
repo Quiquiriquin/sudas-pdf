@@ -45,6 +45,9 @@ const ListOfPractices = ({ practices }) => {
     ).toFixed(1);
   }, 0);
 
+  console.log(totalHours );
+  if ( totalHours === 0 ||totalHours === undefined) return <view></view> 
+
   return (
     <view style={[styles.table]}>
       <view style={[styles.row]}>

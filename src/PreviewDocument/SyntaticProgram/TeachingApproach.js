@@ -28,7 +28,7 @@ const teachingStrategies = [
   'e)',
 ];
 
-const TeachingApproach = ({ units }) => {
+const TeachingApproach = ({ units, strategy }) => {
   return (
     <view
       style={[styles.row, { padding: '0', alignItems: 'flex-start' }]}
@@ -122,17 +122,19 @@ const TeachingApproach = ({ units }) => {
             styles.row,
             {
               width: '100%',
+              height: '3cm',
               flexDirection: 'row',
+              alignContent: 'flex-start',
               padding: '0',
               borderBottom: '0',
             },
           ]}
         >
-          <view style={[styles.list, { width: '7.3cm' }]}>
-            {teachingMethods?.map((method, index) => (
+          <view style={[styles.list, { width: '7.3cm', borderRight: '1px solid #000', height: '3cm' }]}>
+          {units?.map((unit, index) => (
               <view
                 // eslint-disable-next-line react/no-array-index-key
-                key={index + method}
+                key={index + unit}
                 style={[
                   styles.row,
                   {
@@ -140,6 +142,7 @@ const TeachingApproach = ({ units }) => {
                     flexDirection: 'row',
                     height: '0.6cm',
                     padding: '0',
+                    alignContent: 'flex-start',
                     borderBottom:
                       index + 1 !== teachingMethods.length
                         ? '1px solid #000'
@@ -164,7 +167,7 @@ const TeachingApproach = ({ units }) => {
                       fontWeight: 'bold',
                     }}
                   >
-                    {method}
+                    {unit?.method?.label}
                   </Text>
                 </view>
                 <view
@@ -174,6 +177,7 @@ const TeachingApproach = ({ units }) => {
                       flexDirection: 'row',
                       width: '0.92cm',
                       height: '0.6cm',
+                      borderRight: 0,
                     },
                   ]}
                 >
@@ -182,11 +186,11 @@ const TeachingApproach = ({ units }) => {
               </view>
             ))}
           </view>
-          <view style={[styles.list, { width: '7.3cm' }]}>
-            {teachingStrategies.map((strategie, index) => (
+          <view style={[styles.list, { width: '7.3cm', height: '3cm'}]}>
+            {/* {teachingStrategies.map((strategie, index) => ( */}
               <view
                 // eslint-disable-next-line react/no-array-index-key
-                key={index + strategie}
+                // key={index + strategie}
                 style={[
                   styles.row,
                   {
@@ -194,10 +198,10 @@ const TeachingApproach = ({ units }) => {
                     flexDirection: 'row',
                     height: '0.6cm',
                     padding: '0',
-                    borderBottom:
-                      index + 1 === teachingMethods.length
-                        ? '0'
-                        : '1px solid #000',
+                    // borderBottom:
+                    //   index + 1 === teachingMethods.length
+                    //     ? '0'
+                    //     : '1px solid #000',
                   },
                 ]}
               >
@@ -218,7 +222,7 @@ const TeachingApproach = ({ units }) => {
                       fontWeight: 'bold',
                     }}
                   >
-                    {strategie}
+                    {strategy?.label}
                   </Text>
                 </view>
                 <view
@@ -235,7 +239,7 @@ const TeachingApproach = ({ units }) => {
                   <Text style={{ margin: '0 auto' }}>X</Text>
                 </view>
               </view>
-            ))}
+            {/* ))} */}
           </view>
         </view>
       </view>

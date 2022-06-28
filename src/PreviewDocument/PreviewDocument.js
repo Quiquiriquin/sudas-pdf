@@ -52,7 +52,10 @@ const PreviewDocument = () => {
 
   const { isLoading: isLoadingUnits, data: unitsResponse } = useQuery(
     ['competences', subject.id],
-    GET_COMPETENCES_AXIOS
+    GET_COMPETENCES_AXIOS,
+    {
+      enabled: !!subject?.id,
+    }
   );
 
   const { isLoading: isLoadingConnectors, data: connectorsResponse } =
@@ -121,8 +124,8 @@ const PreviewDocument = () => {
     // isLoadingRelatedUnits ||
     isLoadingUnits
   )
-    return <p>Cargando...</p>;
-
+    return <p className="title">Cargando...</p>;
+   
   return (
     <div className="w-full">
       <PDFViewer style={styles.viewer}>
