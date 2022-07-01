@@ -4,22 +4,23 @@ import { styles } from '../PdfStyles';
 import { TableBibliography } from './TableBibliography';
 
 const BasicBibliography = ({ subject }) => {
+  console.log(subject?.bibliographies);
   const itemsBasicBibliography = subject?.bibliographies
     ?.filter((b) => b.type === 'BASIC')
     ?.map((b) => {
       const item = {
         text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
-        type: 1,
+        type: b.kind,
       };
       return item;
     });
 
   const itemsComplementaryBibliography = subject?.bibliographies
-    ?.filter((b) => b?.type === 'BASIC')
+    ?.filter((b) => b?.type === 'COMPLEMENTARY')
     ?.map((b) => {
       const item = {
         text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
-        type: 1,
+        type: b.kind,
       };
       return item;
     });
@@ -29,7 +30,7 @@ const BasicBibliography = ({ subject }) => {
     ?.map((b) => {
       const item = {
         text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
-        type: 1,
+        type: b.kind,
       };
       return item;
     });

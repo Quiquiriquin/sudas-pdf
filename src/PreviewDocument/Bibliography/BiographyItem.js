@@ -32,7 +32,7 @@ const BiographyItem = ({ item }) => {
           },
         ]}
       >
-        <Text> {item.type === 1 ? 'X' : ''} </Text>
+        <Text> {item.type === 'BOOK' ? 'X' : ''} </Text>
       </view>
       <view
         style={[
@@ -46,7 +46,7 @@ const BiographyItem = ({ item }) => {
           },
         ]}
       >
-        <Text> {item.type === 2 ? 'X' : ''} </Text>
+        <Text> {item.type === "ANTOLOGY" ? 'X' : ''} </Text>
       </view>
       <view
         style={[
@@ -61,7 +61,7 @@ const BiographyItem = ({ item }) => {
           },
         ]}
       >
-        <Text> {item.type === 3 ? 'X' : ''} </Text>
+        <Text> {item.type === "OTHERS" ? 'X' : ''} </Text>
       </view>
     </view>
   );
