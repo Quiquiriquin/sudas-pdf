@@ -3,33 +3,29 @@ import MainInfoDocument from '../MainInfoDocument';
 import { styles } from '../PdfStyles';
 import { TableBibliography } from './TableBibliography';
 
-const BasicBibliography = ({ subject }) => {
-  console.log(subject?.bibliographies);
-  const itemsBasicBibliography = subject?.bibliographies
-    ?.filter((b) => b.type === 'BASIC')
+const BasicBibliography = ({ biblio, subject }) => {
+  const itemsBasicBibliography = biblio?.basic
     ?.map((b) => {
       const item = {
-        text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
+        text: `${b?.author?.name} (${b?.year}). ${b?.title}. ISB ${b?.library}`,
         type: b.kind,
       };
       return item;
     });
 
-  const itemsComplementaryBibliography = subject?.bibliographies
-    ?.filter((b) => b?.type === 'COMPLEMENTARY')
+  const itemsComplementaryBibliography = biblio?.complementary
     ?.map((b) => {
       const item = {
-        text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
+        text: `${b?.author?.name} (${b?.year}). ${b?.title}. ISB ${b?.library}`,
         type: b.kind,
       };
       return item;
     });
 
-  const itemsCiberBibliography = subject?.bibliographies
-    ?.filter((b) => b?.type === 'CYBER')
+  const itemsCiberBibliography = biblio?.cyber
     ?.map((b) => {
       const item = {
-        text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
+        text: `${b?.author?.name} .(${b?.year}). ${b?.title}. ISB ${b?.library}`,
         type: b.kind,
       };
       return item;

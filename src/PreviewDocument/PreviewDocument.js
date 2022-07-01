@@ -104,8 +104,6 @@ const PreviewDocument = () => {
           label: description,
         })
         );
-        console.log(newVerbs);
-        console.log(newConnectors);
       setConnectors(newConnectors);
       setVerbs(newVerbs);
     }
@@ -125,6 +123,8 @@ const PreviewDocument = () => {
     isLoadingUnits
   )
     return <p className="title">Cargando...</p>;
+   
+  console.log(biblio);
    
   return (
     <div className="w-full">
@@ -162,11 +162,11 @@ const PreviewDocument = () => {
           ))}
           <Page size="A4" style={styles.page}>
             <DocumentHeader />
-            <BasicBibliography subject={subject} />
+            <BasicBibliography biblio={biblio} />
           </Page>
           <Page size="A4" style={styles.page}>
             <DocumentHeader />
-            <DigResBibliography subject={subject} />
+            <DigResBibliography subject={subject} biblio={biblio} />
           </Page>
           <Page size="A4" style={styles.page}>
             <DocumentHeader />

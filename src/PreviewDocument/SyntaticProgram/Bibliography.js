@@ -3,55 +3,6 @@ import { Text, Font } from '@react-pdf/renderer';
 import { styles } from '../PdfStyles';
 // import romanize from '../../../helpers/Romanize';
 
-const bibliographies = [
-  {
-    autor: 'Castellan, W.G.',
-    year: '2015',
-    title: 'Fisicoquímica',
-    editorial: 'Addison Wesley Longman / Person / ISBN 9684443161',
-  },
-  {
-    autor: 'Chang, R.',
-    year: '2012',
-    title: 'Fisicoquímica',
-    editorial: 'Ed. Interamericana / ISBN 9789701066522',
-  },
-  {
-    autor: 'Levine, I.N.',
-    year: '2014',
-    title: 'Principios de Fisicoquímica',
-    editorial: 'Mc Graw Hill / ISBN 9786071509888',
-  },
-  {
-    autor: 'Monsalvo, V. R. & Pérez, M. L.',
-    year: '2017',
-    title: 'Alfa Omega / ISBN 9786076221914',
-    editorial: 'Addison Wesley Longman / Person / ISBN 9684443161',
-  },
-  {
-    autor: 'Reyes C. L.A.',
-    year: '2014',
-    title: 'Fisicoquímica',
-    editorial: 'Mc Graw Hill Educación / ISBN 9786071509093',
-  },
-];
-
-// const teachingMethods = [
-//   'a) Inductivo',
-//   'b) Deductivo',
-//   'c) Analógico',
-//   'd) Aula Invertida',
-//   'e)',
-// ];
-//
-// const teachingStrategies = [
-//   'a) Estudio de casos',
-//   'b) Aprendizaje basado en problemas',
-//   'c) Aprendizaje orientado proyectos ',
-//   'd)',
-//   'e)',
-// ];
-
 Font.register({
   family: 'Arial',
   fonts: [
@@ -215,7 +166,7 @@ const Bibliography = ({ biblio }) => {
                     flexDirection: 'row',
                     padding: '0',
                     borderBottom:
-                      index + 1 !== bibliographies.length
+                      index + 1 !== biblio.length
                         ? '1px solid #000'
                         : '0',
                   },

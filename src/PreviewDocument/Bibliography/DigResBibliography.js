@@ -3,13 +3,12 @@ import MainInfoDocument from '../MainInfoDocument';
 import { styles } from '../PdfStyles';
 import TableDigitalResources from './TableDigitalResources';
 
-const DigResBibliography = ({ subject }) => {
-  const itemsDigitalBibliography = subject?.bibliographies
-    ?.filter((b) => b.type === 'DIGITAL')
+const DigResBibliography = ({ subject, biblio }) => {
+  const itemsDigitalBibliography = biblio?.digital
     ?.map((b) => {
       const item = {
         text: `Author, W.G (${b?.year}). ${b?.title}. ISB ${b?.library}`,
-        type: 1,
+        type: b?.kind,
       };
       return item;
     });
