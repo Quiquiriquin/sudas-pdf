@@ -35,7 +35,7 @@ const RowContent = ({
             {indexSubcontent !== -1 ? `.${indexSubcontent}` : ''}
           </Text>
         </view>
-        <view styles={{ width: '85%' }}>
+        <view style={{ width: '85%' }}>
           <Text>{content}</Text>
         </view>
       </view>
@@ -44,6 +44,7 @@ const RowContent = ({
           styles.cell,
           {
             width: '1.28cm',
+            height: '100%',
             flexDirection: 'row',
             justifyContent: 'center',
           },
@@ -62,6 +63,7 @@ const RowContent = ({
           styles.cell,
           {
             width: '1.32cm',
+            height: '100%',
             flexDirection: 'row',
             justifyContent: 'center',
           },
