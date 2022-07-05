@@ -20,14 +20,6 @@ const teachingMethods = [
   'e)',
 ];
 
-const teachingStrategies = [
-  'a) Estudio de casos',
-  'b) Aprendizaje basado en problemas',
-  'c) Aprendizaje orientado proyectos ',
-  'd)',
-  'e)',
-];
-
 const TeachingApproach = ({ units, strategy }) => {
   return (
     <view
