@@ -4,19 +4,10 @@ import { styles } from '../PdfStyles';
 import ListOfPractices from './ListOfPractices';
 import StrategiesTable from './StrategiesTable';
 
-const TematicUnitInfo = ({ practices, index }) => {
-  const activities = [
-    'Desarrollo de conceptos teóricos a partir de organizadores gráficos con uso de TIC, gráficas, cuadros de doble entrada.',
-    'Resolución en equipo de ejercicios y problemas de adsorción, sistemas coloidales y cinética química',
-    'Realización de prácticas',
-  ];
+const TematicUnitInfo = ({ practices, activitiesData, strategy, index }) => {
+  const activities = activitiesData.map( a => a.title );
 
-  const evidencies = [
-    'Mapas conceptuales y cuadros de doble entrada',
-    'Problemas resueltos',
-    'Reporte de prácticas',
-    'Evaluación escrita',
-  ];
+  const evidencies = activitiesData.map( a => a.description );
 
   return (
     <view>
@@ -25,6 +16,7 @@ const TematicUnitInfo = ({ practices, index }) => {
       <StrategiesTable
         activities={activities}
         evidencies={evidencies}
+        strategy={strategy}
       />
       <view style={styles.break} />
       <ListOfPractices practices={practices} />

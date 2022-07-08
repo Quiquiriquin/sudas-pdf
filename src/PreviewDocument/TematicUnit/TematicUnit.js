@@ -6,6 +6,7 @@ import TematicUnitInfo from './TematicUnitInfo';
 import UnitContents from './UnitContents';
 
 const TematicUnit = ({ unit, subject, verbs, connectors, index }) => {
+  console.log(unit);
   return (
     <>
       <Page size="A4" style={styles.page}>
@@ -20,7 +21,7 @@ const TematicUnit = ({ unit, subject, verbs, connectors, index }) => {
       </Page>
       <Page size="A4" style={styles.page}>
         <DocumentHeader />
-        <TematicUnitInfo practices={unit.practices} index={index} />
+        <TematicUnitInfo practices={unit?.practices} activitiesData={unit?.activities} strategy={unit?.method?.label} index={index} />
       </Page>
     </>
   );

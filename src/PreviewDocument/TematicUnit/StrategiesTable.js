@@ -12,7 +12,7 @@ Font.register({
   ],
 });
 
-const StrategiesTable = ({ activities, evidencies }) => {
+const StrategiesTable = ({ activities, evidencies, strategy }) => {
   return (
     <view style={[styles.table]}>
       <view style={[styles.row]}>
@@ -70,7 +70,7 @@ const StrategiesTable = ({ activities, evidencies }) => {
           ]}
         >
           <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
-            Aprendizaje Basado en Problemas
+            Estrategias de aprendizaje: {strategy}
           </Text>
           <Text style={{ margin: '0.5cm 0' }}>
             El alumno desarrollará las siguientes actividades:
