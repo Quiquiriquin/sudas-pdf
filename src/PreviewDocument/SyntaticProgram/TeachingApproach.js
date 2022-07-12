@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Font } from '@react-pdf/renderer';
 import { styles } from '../PdfStyles';
+import RowAndX from './RowAndX';
 
 Font.register({
   family: 'Arial',
@@ -12,15 +13,18 @@ Font.register({
   ],
 });
 
-const teachingMethods = [
-  'a) Inductivo',
-  'b) Deductivo',
-  'c) Analógico',
-  'd) Aula Invertida',
-  'e)',
-];
-
 const TeachingApproach = ({ units, strategy }) => {
+
+  const methods = [
+    ...new Set(units?.map((unit) => (
+      unit?.method?.label
+    )))
+  ];
+
+  const missingRowMethods = Array.from(Array(5 - methods.length).keys());
+
+  const missingRowStrategies = Array.from(Array(4).keys());
+
   return (
     <view
       style={[styles.row, { padding: '0', alignItems: 'flex-start' }]}
@@ -123,10 +127,10 @@ const TeachingApproach = ({ units, strategy }) => {
           ]}
         >
           <view style={[styles.list, { width: '7.3cm', borderRight: '1px solid #000', height: '3cm' }]}>
-          {units?.map((unit, index) => (
+          {methods?.map((method, index) => (
               <view
                 // eslint-disable-next-line react/no-array-index-key
-                key={index + unit}
+                key={index + method}
                 style={[
                   styles.row,
                   {
@@ -136,53 +140,43 @@ const TeachingApproach = ({ units, strategy }) => {
                     padding: '0',
                     alignContent: 'flex-start',
                     borderBottom:
-                      index + 1 !== teachingMethods.length
+                      index + 1 !== 5
                         ? '1px solid #000'
                         : '0',
                   },
                 ]}
               >
-                <view
-                  style={[
-                    styles.cell,
-                    {
-                      flexDirection: 'row',
-                      width: '6.3cm',
-                      height: '0.6cm',
-                    },
-                  ]}
-                >
-                  <Text
-                    style={{
-                      margin: '0 3px',
-                      fontFamily: 'Arial',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {unit?.method?.label}
-                  </Text>
-                </view>
-                <view
-                  style={[
-                    styles.cell,
-                    {
-                      flexDirection: 'row',
-                      width: '0.92cm',
-                      height: '0.6cm',
-                      borderRight: 0,
-                    },
-                  ]}
-                >
-                  <Text style={{ margin: '0 auto' }}>X</Text>
-                </view>
+                <RowAndX text={method} mark={true}/>
               </view>
-            ))}
+            ))
+            }
+            {
+              missingRowMethods?.map((index) => (
+                <view
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index + "method"}
+                  style={[
+                    styles.row,
+                    {
+                      width: '7.24cm',
+                      flexDirection: 'row',
+                      height: '0.6cm',
+                      padding: '0',
+                      alignContent: 'flex-start',
+                      borderBottom:
+                        index + 1 + methods.length !== 5
+                          ? '1px solid #000'
+                          : '0',
+                    },
+                  ]}
+                >
+                  <RowAndX text="" mark={false}/>
+                </view>
+              ))
+            }
           </view>
           <view style={[styles.list, { width: '7.3cm', height: '3cm'}]}>
-            {/* {teachingStrategies.map((strategie, index) => ( */}
               <view
-                // eslint-disable-next-line react/no-array-index-key
-                // key={index + strategie}
                 style={[
                   styles.row,
                   {
@@ -197,41 +191,32 @@ const TeachingApproach = ({ units, strategy }) => {
                   },
                 ]}
               >
-                <view
-                  style={[
-                    styles.cell,
-                    {
-                      flexDirection: 'row',
-                      width: '6.3cm',
-                      height: '0.6cm',
-                    },
-                  ]}
-                >
-                  <Text
-                    style={{
-                      margin: '0 3px',
-                      fontFamily: 'Arial',
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {strategy?.label}
-                  </Text>
-                </view>
-                <view
-                  style={[
-                    styles.cell,
-                    {
-                      flexDirection: 'row',
-                      width: '0.92cm',
-                      height: '0.6cm',
-                      borderRight: '0',
-                    },
-                  ]}
-                >
-                  <Text style={{ margin: '0 auto' }}>X</Text>
-                </view>
+                <RowAndX text={strategy?.label} mark={true} />
               </view>
-            {/* ))} */}
+            {
+                missingRowStrategies?.map((index) => (
+                  <view
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index + "method"}
+                    style={[
+                      styles.row,
+                      {
+                        width: '7.24cm',
+                        flexDirection: 'row',
+                        height: '0.6cm',
+                        padding: '0',
+                        alignContent: 'flex-start',
+                        borderBottom:
+                          index + 1  !== 4
+                            ? '1px solid #000'
+                            : '0',
+                      },
+                    ]}
+                  >
+                    <RowAndX text="" mark={false}/>
+                  </view>
+                ))
+              }
           </view>
         </view>
       </view>
