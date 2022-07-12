@@ -26,7 +26,6 @@ const SyntheticProgram = ({
   const connector = connectors.find(
     (c) => c.id === subject?.purpose?.connectorId
   );
-  console.log(subject);
   return (
     <view style={styles.syntheticProgram}>
       <Text

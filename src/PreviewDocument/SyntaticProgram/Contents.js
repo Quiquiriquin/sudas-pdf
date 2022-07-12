@@ -58,9 +58,21 @@ const Contents = ({ units }) => {
         >
           {units?.map((unit, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <Text key={`units-text${index}`}>
-              {romanize(index + 1)}. {unit?.description}
-            </Text>
+            <view style={[
+              {
+                width: '100%',
+                flexDirection: 'row',
+              },
+            ]}>
+              <view style={{ width: '7%' }}>
+                <Text>
+                {romanize(index + 1)}.
+                </Text>
+              </view>
+              <view style={{ width: '85%' }}>
+                <Text>{unit?.description}</Text>
+              </view>
+            </view>
           ))}
         </view>
       </view>

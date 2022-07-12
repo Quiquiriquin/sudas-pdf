@@ -17,6 +17,7 @@ import { SubjectContext } from '../context/SubjectContext';
 import { GET_COMPETENCES_AXIOS, GET_CONNECTOR_AXIOS, GET_SUBJECT_AXIOS, GET_SUBJECT_BIBLIO_AXIOS, GET_VERB_AXIOS } from '../helpers/AxiosEnpoints';
 
 Font.register({ family: 'Arial', fontStyle: 'bold' });
+Font.registerHyphenationCallback(word => [word]);
 
 const PreviewDocument = () => {
   const {
