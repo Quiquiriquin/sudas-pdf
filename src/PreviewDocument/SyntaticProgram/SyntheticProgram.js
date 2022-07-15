@@ -56,7 +56,7 @@ const SyntheticProgram = ({
                 { fontFamily: 'Arial', fontWeight: 'bold' },
               ]}
             >
-              UNIDAD ACADÉMICA:
+              UNIDAD ACADÉMICA: ESCUELA NACIONAL DE CIENCIAS BIOLÓGICAS
             </Text>
           </view>
         </view>

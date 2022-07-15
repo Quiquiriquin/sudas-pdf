@@ -19,7 +19,7 @@ const InfoSubject = ({ subject, verb, connector }) => {
         style={[styles.row, { height: '0.6cm', padding: '0 2px' }]}
       >
         <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
-          UNIDAD ACADÉMICA:{' '}
+          UNIDAD ACADÉMICA: ESCUELA NACIONAL DE CIENCIAS BIOLÓGICAS
         </Text>
       </view>
       <view
