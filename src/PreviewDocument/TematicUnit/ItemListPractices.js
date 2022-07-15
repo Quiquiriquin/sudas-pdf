@@ -35,11 +35,11 @@ const ItemListPractices = ({
             flexDirection: 'row',
             padding: '0 .1cm',
             alignItems: 'start',
-            textAlign: 'center',
+            textAlign: 'left',
           },
         ]}
       >
-        <Text styles={{ margin: '0 auto', textAlign: 'center' }}>
+        <Text styles={{ margin: '0 auto', textAlign: 'left' }}>
           {name}
         </Text>
       </view>

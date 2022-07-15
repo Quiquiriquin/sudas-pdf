@@ -70,7 +70,7 @@ const StrategiesTable = ({ activities, evidencies, strategy }) => {
           ]}
         >
           <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
-            Estrategias de aprendizaje: {strategy}
+            Estrategia de aprendizaje: {strategy}
           </Text>
           <Text style={{ margin: '0.5cm 0' }}>
             El alumno desarrollará las siguientes actividades:

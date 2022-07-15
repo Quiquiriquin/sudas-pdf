@@ -26,6 +26,7 @@ const RowContent = ({
             height: '100%',
             padding: '0 .2cm',
             flexDirection: 'row',
+            alignItems: 'flex-start'
           },
         ]}
       >

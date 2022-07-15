@@ -23,6 +23,7 @@ Font.register({
 });
 
 const TableProfileTeacher = ({ profile }) => {
+  console.log('Perfil: ', profile);
   return (
     <view style={[styles.table]}>
       <view
@@ -152,10 +153,11 @@ const TableProfileTeacher = ({ profile }) => {
               padding: '0 0.2cm',
               textAlign: 'justify',
               border: '0',
+
             },
           ]}
         >
-          <Text>{profile?.attitudes}</Text>
+          <Text>{profile?.attitudes.split(',').map((attitude, index) => (<Text>{attitude} {index + 1 === profile?.attitudes.split(',').length ? '.' : ','}</Text>))}</Text>
         </view>
       </view>
     </view>

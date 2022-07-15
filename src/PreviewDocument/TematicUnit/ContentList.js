@@ -2,6 +2,9 @@ import React from 'react';
 import RowContent from './RowContent';
 
 const ContentList = ({ content, index, indexContent }) => {
+  const format = (hour) => {
+    return parseFloat(hour || 0).toFixed(1);
+  };
   return (
     <view
       style={{
@@ -10,9 +13,9 @@ const ContentList = ({ content, index, indexContent }) => {
     >
       <RowContent
         content={content?.title}
-        teoricHour={content?.T}
-        practiceHour={content?.P}
-        AAHour={content?.AA}
+        teoricHour={format(content?.T)}
+        practiceHour={format(content?.P)}
+        AAHour={format(content?.AA)}
         indexUnit={index}
         indexContent={indexContent}
       />

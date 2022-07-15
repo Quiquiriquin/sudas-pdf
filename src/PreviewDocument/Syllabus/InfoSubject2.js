@@ -219,7 +219,7 @@ const InfoSubject2 = ({ subject }) => {
               textAlign: 'center',
             }}
           >
-            ChávezPresidente del CTCE
+            Chávez Presidente del CTCE
           </Text>
         </view>
       </view>

@@ -55,7 +55,7 @@ const ipnImage =
 const logoSchool =
   // 'https://www.encb.ipn.mx/assets/files/encb/img/escudos/escudo-330X330.jpg';
   // 'https://documentalias.files.wordpress.com/2012/06/maldonado-31.jpg';
-  'https://i.ibb.co/rtDBL1q/ENCB-sinfondo.png';
+  'https://cdn.teament.com.mx/resources/ENCB.png';
 
 const DocumentHeader = () => {
   return (
