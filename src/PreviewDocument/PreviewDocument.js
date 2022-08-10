@@ -40,7 +40,7 @@ const PreviewDocument = () => {
       localStorage.setItem('a_t', t);
       setHasToken(true);
     }
-  }, []);
+  }, [location.search]);
   const { data: biblipographiesData } = useQuery(
     ['bibliography', subject?.id],
     GET_SUBJECT_BIBLIO_AXIOS,
