@@ -11,7 +11,6 @@ const baseApiClient = axios.create({
  * Adding just auhtorization with access/refresh token
  */
 baseApiClient.interceptors.request.use((request) => {
-  const { url } = request;
   // if (!url.includes('login') || url.includes('first_login')) {
   //   request.withCredentials = true;
   // } else {
