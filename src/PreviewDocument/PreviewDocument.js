@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import { Page, Document, PDFViewer, Font } from '@react-pdf/renderer';
 
 // import { SubjectContext } from '../../context/SubjectContext';
@@ -31,12 +31,20 @@ const PreviewDocument = () => {
     units,
   } = useContext(SubjectContext);
   const [biblio, setBiblio] = useState({});
+  const location = useLocation();
+  const [hasToken, setHasToken] = useState(false);
 
+  useEffect(() => {
+    const t = new URLSearchParams(location.search).get("t");
+    if (t && t?.length > 10) {
+      setHasToken(true);
+    }
+  }, []);
   const { data: biblipographiesData } = useQuery(
     ['bibliography', subject?.id],
     GET_SUBJECT_BIBLIO_AXIOS,
     {
-      enabled: !!subject,
+      enabled: !!subject && hasToken,
     }
   );
   
@@ -48,19 +56,23 @@ const PreviewDocument = () => {
 
   const { isLoading: isLoadingVerbs, data: verbsResponse } = useQuery(
     'verbs',
-    GET_VERB_AXIOS
+    GET_VERB_AXIOS, {
+      enabled: hasToken
+    }
   );
 
   const { isLoading: isLoadingUnits, data: unitsResponse } = useQuery(
     ['competences', subject.id],
     GET_COMPETENCES_AXIOS,
     {
-      enabled: !!subject?.id,
+      enabled: !!subject?.id && hasToken,
     }
   );
 
   const { isLoading: isLoadingConnectors, data: connectorsResponse } =
-    useQuery('connectors', GET_CONNECTOR_AXIOS);
+    useQuery('connectors', GET_CONNECTOR_AXIOS, {
+      enabled: hasToken
+    });
 
   useEffect(() => {
     if (biblipographiesData && biblipographiesData.status !== 204) {
@@ -126,7 +138,17 @@ const PreviewDocument = () => {
     return <p className="title">Cargando...</p>;
    
   console.log(biblio);
-   
+
+  if (!hasToken) {
+    return (
+      <div style={{ height: '100vh', width: '100vw', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <h1>
+          Esperando autorización
+        </h1>
+      </div>
+    )
+  }
+
   return (
     <div className="w-full">
       <PDFViewer style={styles.viewer}>
