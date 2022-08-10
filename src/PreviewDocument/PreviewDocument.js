@@ -37,6 +37,7 @@ const PreviewDocument = () => {
   useEffect(() => {
     const t = new URLSearchParams(location.search).get("t");
     if (t && t?.length > 10) {
+      localStorage.setItem('a_t', t);
       setHasToken(true);
     }
   }, []);

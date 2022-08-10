@@ -20,6 +20,7 @@ baseApiClient.interceptors.request.use((request) => {
   request.headers = {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('a_t')}`,
   };
 
   return request;
