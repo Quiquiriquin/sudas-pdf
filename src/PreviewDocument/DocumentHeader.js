@@ -70,7 +70,7 @@ const DocumentHeader = () => {
         </Text>
         <Text style={styles.subtitle1}>SECRETARÍA ACADÉMICA</Text>
         <Text style={styles.subtitle2}>
-          DIRECCIÓN DE EDUCACIÓN SUPERIOR
+          DIRECCIÓN DE EDUCACIÓN SUPERIOR a
         </Text>
       </view>
       <Image
