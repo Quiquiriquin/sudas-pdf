@@ -36,6 +36,7 @@ const PreviewDocument = () => {
 
   useEffect(() => {
     const t = new URLSearchParams(location.search).get("t");
+    console.log(t, "---");
     if (t && t?.length > 10) {
       localStorage.setItem('a_t', t);
       setHasToken(true);
@@ -103,7 +104,6 @@ const PreviewDocument = () => {
 
   useEffect(() => {
     if (verbsResponse && connectorsResponse) {
-      console.log(verbsResponse)
       const newVerbs = verbsResponse?.map(
         ({ description, id: idVerb }) => ({
           id: idVerb,
@@ -137,9 +137,6 @@ const PreviewDocument = () => {
     isLoadingUnits
   )
     return <p className="title">Cargando...</p>;
-   
-  console.log(biblio);
-
   if (!hasToken) {
     return (
       <div style={{ height: '100vh', width: '100vw', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

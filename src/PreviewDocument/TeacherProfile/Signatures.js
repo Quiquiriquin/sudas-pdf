@@ -2,7 +2,18 @@ import { Text } from '@react-pdf/renderer';
 import React from 'react';
 import { styles } from '../PdfStyles';
 
-const Signatures = () => {
+const Signatures = ({subject}) => {
+  const reviewedBy = subject?.academicPlan?.reviewedBy === null ? "Sin autoridad" : subject?.academicPlan?.reviewedBy;
+  // const approvedBy = subject?.academicPlan?.approvedBy === null ? "Sin autoridad" : subject?.academicPlan?.approvedBy;
+  const authorizedBy = subject?.academicPlan?.authorizedBy === null ? "Sin autoridad" : subject?.academicPlan?.authorizedBy;
+  const coordinator =   subject?.Coordinator[0]?.academicGrade  
+                      + " " + subject?.Coordinator[0]?.name 
+                      + " " + subject?.Coordinator[0]?.firstSurname 
+                      + " " + subject?.Coordinator[0]?.secondSurname;
+  const collaborator =   subject?.Collaborator[0]?.academicGrade  
+                      + " " + subject?.Collaborator[0]?.name 
+                      + " " + subject?.Collaborator[0]?.firstSurname 
+                      + " " + subject?.Collaborator[0]?.secondSurname;
   return (
     <view style={[styles.table, { border: '0' }]}>
       <view
@@ -88,9 +99,9 @@ const Signatures = () => {
               borderTop: '1px solid #000',
             }}
           >
-            <Text>M. en C. Lilia Rico Rodríguez</Text>
+            <Text>{coordinator}</Text>
             <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
-              Profesora Coordinadora
+              Profesor Coordinador
             </Text>
           </view>
         </view>
@@ -117,9 +128,9 @@ const Signatures = () => {
               borderTop: '1px solid #000',
             }}
           >
-            <Text>M. en E. Gabriela Calderón Montoya</Text>
+            <Text>{collaborator}</Text>
             <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
-              Profesora Colaboradora
+              Profesor Colaborador
             </Text>
           </view>
         </view>
@@ -144,7 +155,7 @@ const Signatures = () => {
               borderTop: '1px solid #000',
             }}
           >
-            <Text>M. en C. Martha Patricia Cervantes Cervantes</Text>
+            <Text>{reviewedBy}</Text>
             <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
               Subdirectora Académica
             </Text>
@@ -171,7 +182,7 @@ const Signatures = () => {
               borderTop: '1px solid #000',
             }}
           >
-            <Text>Dr. Gonzalo Trujillo Chávez</Text>
+            <Text>{authorizedBy}</Text>
             <Text style={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
               Director
             </Text>

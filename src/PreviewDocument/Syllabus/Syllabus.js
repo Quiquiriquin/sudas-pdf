@@ -13,7 +13,6 @@ const Syllabus = ({ subject, verbs, connectors, units }) => {
   const connector = connectors?.find(
     (c) => c?.id === subject?.purpose?.connectorId
   );
-  console.log(units);
   return (
     <view style={styles.syntheticProgram}>
       <Text style={styles.mainTitle}>PROGRAMA DE ESTUDIOS</Text>

@@ -38,7 +38,7 @@ const TeacherProfile = ({ subject }) => {
       <view style={styles.break} />
       <TableProfileTeacher profile={subject?.teacherProfile} />
       <view style={styles.break} />
-      <Signatures />
+      <Signatures subject={subject} />
     </view>
   );
 };

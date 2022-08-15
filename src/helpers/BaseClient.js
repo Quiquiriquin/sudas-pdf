@@ -10,17 +10,18 @@ const baseApiClient = axios.create({
  * Use to fulfill the request headers, depending on the URL.
  * Adding just auhtorization with access/refresh token
  */
-baseApiClient.interceptors.request.use((request) => {
-  // if (!url.includes('login') || url.includes('first_login')) {
-  //   request.withCredentials = true;
-  // } else {
-  //   request.withCredentials = false;
-  // }
+ baseApiClient.interceptors.request.use((request) => {
+  const { url } = request;
   request.headers = {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('a_t')}`,
   };
+  if (!url.includes('login')) {
+    request.headers = {
+      ...request?.headers,
+      Authorization: `Bearer ${localStorage.getItem('a_t')}`,
+    };
+  }
 
   return request;
 });

@@ -13,6 +13,10 @@ Font.register({
 });
 
 const InfoSubject2 = ({ subject }) => {
+  const reviewedBy = subject?.academicPlan?.reviewedBy === null ? "Sin autoridad" : subject?.academicPlan?.reviewedBy;
+  const approvedBy = subject?.academicPlan?.approvedBy === null ? "Sin autoridad" : subject?.academicPlan?.approvedBy;
+  const authorizedBy = subject?.academicPlan?.authorizedBy === null ? "Sin autoridad" : subject?.academicPlan?.authorizedBy;
+
   const asignedTimes = [
     { text: 'HORAS TEORÍA/SEMANA:', hour: subject?.theoryWeek },
     { text: 'HORAS PRÁCTICA/SEMANA:', hour: subject?.practiceWeek },
@@ -156,7 +160,7 @@ const InfoSubject2 = ({ subject }) => {
               textAlign: 'center',
             }}
           >
-            M. en C. Martha Patricia Cervantes Cervantes
+            { reviewedBy }
           </Text>
         </view>
         <view
@@ -206,7 +210,7 @@ const InfoSubject2 = ({ subject }) => {
               textAlign: 'center',
             }}
           >
-            Dr. Gonzalo Trujillo
+            {approvedBy}
           </Text>
         </view>
         <view
@@ -219,7 +223,7 @@ const InfoSubject2 = ({ subject }) => {
               textAlign: 'center',
             }}
           >
-            Chávez Presidente del CTCE
+             Presidente del CTCE
           </Text>
         </view>
       </view>
@@ -231,7 +235,7 @@ const InfoSubject2 = ({ subject }) => {
           justifyContent: 'space-between',
         }}
       >
-        <view style={[styles.table]}>
+        <view style={[styles.table, {paddingHorizontal: '0.05cm'}]}>
           <Text>
             APROBADO POR: Comisión de Programas Académicos del H.
             Consejo General Consultivo del IPN.
@@ -277,7 +281,7 @@ const InfoSubject2 = ({ subject }) => {
           </view>
           <view style={[styles.row, { border: '0' }]}>
             <Text style={{ margin: '0 auto' }}>
-              Ing. Juan Manuel Velázquez Peto
+              {authorizedBy}
             </Text>
           </view>
           <view
